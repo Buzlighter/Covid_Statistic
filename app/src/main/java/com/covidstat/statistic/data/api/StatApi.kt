@@ -8,6 +8,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface StatApi {
-    @GET("cases")
-    suspend fun getCountryStat(@Query("country") country: String): ResponseStat
+    @GET("{path}")
+    suspend fun getCountryStat(@Path("path") path: String,
+                               @Query("country") country: String): ResponseStat
 }

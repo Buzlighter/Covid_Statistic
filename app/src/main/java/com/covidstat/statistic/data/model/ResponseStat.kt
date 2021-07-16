@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseStat(
     @SerializedName("All")
-    val info: MainInfo) {
+    val mainInfo: MainInfo){
 
     data class MainInfo(
         @SerializedName("confirmed")
@@ -12,9 +12,7 @@ data class ResponseStat(
         @SerializedName("recovered")
         val recovered: Int,
         @SerializedName("deaths")
-        val deaths: Int)
-
-    data class VaccinatedInfo(
+        val deaths: Int,
         @SerializedName("administered")
         val administrated: Int,
         @SerializedName("people_partially_vaccinated")
