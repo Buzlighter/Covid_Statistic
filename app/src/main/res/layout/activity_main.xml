@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/first_field_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/thin_field"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/second_field_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/thin_field"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/first_field_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/third_field_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/thin_field"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/second_field_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+
+
+        <ImageView
+            android:id="@+id/fourth_field_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/thin_field"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/third_field_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/fifth_field_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/thick_field"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/fourth_field_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+        </ImageView>
+
+
+        <TextView
+            android:id="@+id/first_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ПОДТВЕРЖДЕНО"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/first_field_view"
+            app:layout_constraintTop_toTopOf="@id/first_field_view"/>
+
+        <TextView
+            android:id="@+id/second_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ВЫЗДОРОВЕЛО"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/second_field_view"
+            app:layout_constraintTop_toTopOf="@id/second_field_view"/>
+
+        <TextView
+            android:id="@+id/third_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="СМЕРТЕЙ"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/third_field_view"
+            app:layout_constraintTop_toTopOf="@id/third_field_view"/>
+
+        <TextView
+            android:id="@+id/fourth_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ПРОВЕДЕНО ТЕСТОВ"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/fourth_field_view"
+            app:layout_constraintTop_toTopOf="@id/fourth_field_view"/>
+
+        <TextView
+            android:id="@+id/fifth_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ВЫЯВЛЕНО СЛУЧАЕВ ЗА ПОСЛЕДНИЕ СУТКИ"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="@id/fifth_field_view"
+            app:layout_constraintTop_toTopOf="@id/fifth_field_view"/>
+
+        <TextView
+            android:id="@+id/first_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/first_header"
+            app:layout_constraintStart_toStartOf="@id/first_header"/>
+
+        <TextView
+            android:id="@+id/second_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/second_header"
+            app:layout_constraintStart_toStartOf="@id/second_header"/>
+
+        <TextView
+            android:id="@+id/third_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/third_header"
+            app:layout_constraintStart_toStartOf="@id/third_header"/>
+
+        <TextView
+            android:id="@+id/fourth_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/fourth_header"
+            app:layout_constraintStart_toStartOf="@id/fourth_header"/>
+
+        <TextView
+            android:id="@+id/fifth_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/green"
+            app:layout_constraintTop_toBottomOf="@id/fifth_header"
+            app:layout_constraintStart_toStartOf="@id/fifth_header"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
