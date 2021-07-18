@@ -10,7 +10,7 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MainViewModel(application: Application): AndroidViewModel(application) {
+class StatFragmentViewModel(application: Application): AndroidViewModel(application) {
 
     val mainLiveData = MutableLiveData<ResponseStat>()
     val minorLiveData = MutableLiveData<ResponseStat>()
