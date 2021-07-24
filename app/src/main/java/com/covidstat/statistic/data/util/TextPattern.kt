@@ -1,15 +1,14 @@
 package com.covidstat.statistic.data.util
 
-import android.view.View
 import android.widget.TextView
 import com.szagurskii.patternedtextwatcher.PatternedTextWatcher
 
 class TextPattern {
     companion object {
-        fun checkNum(textView: TextView, number: Int) {
+        fun checkNumForPattern(textView: TextView, number: Int) {
             when(number) {
-                in 1 until 1000 ->
-                    textView.addTextChangedListener(PatternedTextWatcher("###"))
+                in 0 until 1000 ->
+                   textView.addTextChangedListener(PatternedTextWatcher("###"))
                 in 1000 until 10000 ->
                     textView.addTextChangedListener(PatternedTextWatcher("# ###"))
                 in 10000 until 100000 ->

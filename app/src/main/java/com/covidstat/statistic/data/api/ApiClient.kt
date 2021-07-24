@@ -2,7 +2,6 @@ package com.covidstat.statistic.data.api
 
 import android.app.Application
 import com.covidstat.statistic.data.util.Access
-import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

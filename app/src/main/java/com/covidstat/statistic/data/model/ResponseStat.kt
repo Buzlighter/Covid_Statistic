@@ -4,18 +4,18 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseStat(
     @SerializedName("All")
-    val mainInfo: MainInfo){
+    val mainInfo: MainInfo?) {
 
     data class MainInfo(
         @SerializedName("confirmed")
-        val confirmed: Int,
+        val confirmed: Int?,
         @SerializedName("recovered")
-        val recovered: Int,
+        val recovered: Int?,
         @SerializedName("deaths")
-        val deaths: Int,
+        val deaths: Int?,
         @SerializedName("administered")
-        val administrated: Int,
+        val administrated: Int?,
         @SerializedName("people_partially_vaccinated")
-        val tested: Int)
+        val tested: Int?)
 }
 

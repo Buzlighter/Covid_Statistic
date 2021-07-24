@@ -5,5 +5,8 @@ class Access {
         const val SERVER_URL: String = "https://covid-api.mmediagroup.fr/v1/"
         const val SERVER_PATH_CASES = "cases"
         const val SERVER_PATH_VACCINES = "vaccines"
+
+        //Transaction Fragments TAGs
+        const val COUNTRY_INPUT_BUNDLE = "input_country"
     }
 }
