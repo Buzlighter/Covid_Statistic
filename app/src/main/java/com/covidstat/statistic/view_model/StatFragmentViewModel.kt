@@ -18,8 +18,8 @@ class StatFragmentViewModel(application: Application): AndroidViewModel(applicat
      fun getCovidInfo(statApi: StatApi?) {
         viewModelScope.launch(Dispatchers.IO) {
             statApi?.let {
-                mainLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_CASES, "Burkina Faso"))
-                minorLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_VACCINES, "Burkina Faso"))
+                mainLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_CASES, "China"))
+                minorLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_VACCINES, "China"))
             }
         }
     }
