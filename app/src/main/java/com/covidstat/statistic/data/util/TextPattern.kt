@@ -1,28 +1,31 @@
 package com.covidstat.statistic.data.util
 
 import android.widget.TextView
+import androidx.core.util.rangeTo
 import com.szagurskii.patternedtextwatcher.PatternedTextWatcher
 
 class TextPattern {
     companion object {
-        fun checkNumForPattern(textView: TextView, number: Int) {
+        fun checkNumForPattern(textView: TextView, number: Long) {
             when(number) {
-                in 0 until 1000 ->
+                in 0L until 1000L ->
                    textView.addTextChangedListener(PatternedTextWatcher("###"))
-                in 1000 until 10000 ->
+                in 1000L until 10000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("# ###"))
-                in 10000 until 100000 ->
+                in 10000L until 100000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("## ###"))
-                in 100000 until 1000000 ->
+                in 100000L until 1000000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("### ###"))
-                in 1000000 until 10000000 ->
+                in 1000000L until 10000000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("# ### ###"))
-                in 10000000 until 100000000 ->
+                in 10000000L until 100000000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("## ### ###"))
-                in 100000000 until 1000000000 ->
+                in 100000000L until 1000000000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("### ### ###"))
-                in 1000000000 until 10000000000 ->
+                in 1000000000L until 10000000000L ->
                     textView.addTextChangedListener(PatternedTextWatcher("# ### ### ###"))
+                in 10000000000L until 100000000000L ->
+                    textView.addTextChangedListener(PatternedTextWatcher("## ### ### ###"))
             }
         }
     }
