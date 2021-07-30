@@ -1,9 +1,11 @@
-package com.covidstat.statistic
+package com.covidstat.statistic.view.main_screen
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.*
+import com.covidstat.statistic.R
+import com.covidstat.statistic.view.stat_screen.CountryListFragment
 
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
@@ -20,7 +22,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
         statButton.setOnClickListener {
             parentFragmentManager.commit {
-                replace<CountryInputFragment>(R.id.fragment_main_container)
+                replace<CountryListFragment>(R.id.fragment_main_container)
                 setReorderingAllowed(true)
                 addToBackStack(null)
             }

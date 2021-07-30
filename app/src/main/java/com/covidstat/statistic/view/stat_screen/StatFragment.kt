@@ -1,4 +1,4 @@
-package com.covidstat.statistic
+package com.covidstat.statistic.view.stat_screen
 
 import android.os.Bundle
 import android.view.View
@@ -6,12 +6,12 @@ import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.covidstat.statistic.R
 import com.covidstat.statistic.data.api.ApiClient
 import com.covidstat.statistic.data.model.ResponseStat
 import com.covidstat.statistic.data.util.Access
 import com.covidstat.statistic.data.util.TextPattern
 import com.covidstat.statistic.view_model.StatFragmentViewModel
-import com.szagurskii.patternedtextwatcher.PatternedTextWatcher
 
 
 class StatFragment : Fragment(R.layout.fragment_stat) {

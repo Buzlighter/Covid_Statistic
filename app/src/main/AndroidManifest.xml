@@ -3,6 +3,7 @@
     package="com.covidstat.statistic">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".data.api.ApiClient"
@@ -12,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CovidStatistic">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.main_screen.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

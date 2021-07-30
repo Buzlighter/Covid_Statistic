@@ -1,9 +1,10 @@
-package com.covidstat.statistic
+package com.covidstat.statistic.view.main_screen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import com.covidstat.statistic.R
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
