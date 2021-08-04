@@ -36,10 +36,9 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
         fourthFieldData = view.findViewById(R.id.fourth_data)
         fifthFieldData = view.findViewById(R.id.fifth_data)
 
-        // Работает транзакция, оптимизировать код
-        val str = this.arguments?.get(Access.COUNTRY_INPUT_BUNDLE)
+        val countryName = this.arguments?.get(Access.COUNTRY_INPUT_BUNDLE).toString()
 
-        statFragmentViewModel.getCovidInfo(ApiClient.statApi)
+        statFragmentViewModel.getCovidInfo(ApiClient.statApi, countryName)
 
         statLayout.visibility = View.VISIBLE
         setMainData()
@@ -62,7 +61,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
             it?.let {
                 setNumPatternMinorData(it)
                 fourthFieldData.text = it.mainInfo?.tested?.toString() ?: noData
-                fifthFieldData.text = it.mainInfo?.administrated?.toString() ?: noData
+                fifthFieldData.text = it.mainInfo?.population?.toString() ?: noData
             }
         }
     }
@@ -86,7 +85,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
             it.tested?.let { itNum ->
                 TextPattern.checkNumForPattern(fourthFieldData, itNum)
             }
-            it.administrated?.let { itNum ->
+            it.population?.let { itNum ->
                 TextPattern.checkNumForPattern(fifthFieldData, itNum)
             }
         }

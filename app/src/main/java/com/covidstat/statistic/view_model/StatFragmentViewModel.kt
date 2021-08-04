@@ -15,11 +15,11 @@ class StatFragmentViewModel(application: Application): AndroidViewModel(applicat
     val mainLiveData = MutableLiveData<ResponseStat>()
     val minorLiveData = MutableLiveData<ResponseStat>()
 
-     fun getCovidInfo(statApi: StatApi?) {
+     fun getCovidInfo(statApi: StatApi?, countryName: String) {
         viewModelScope.launch(Dispatchers.IO) {
             statApi?.let {
-                mainLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_CASES, "China"))
-                minorLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_VACCINES, "China"))
+                mainLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_CASES, countryName))
+                minorLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_VACCINES, countryName))
             }
         }
     }

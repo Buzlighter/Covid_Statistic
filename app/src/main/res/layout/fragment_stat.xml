@@ -20,7 +20,7 @@
                     android:id="@+id/first_header"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ПОДТВЕРЖДЕНО"
+                    android:text="СЛУЧАЕВ ЗАБОЛЕВАНИЯ"
                     android:layout_marginStart="10dp"
                     android:textColor="@color/white"
                     android:textSize="25sp"
@@ -133,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="ВЫЯВЛЕНО СЛУЧАЕВ"
+                    android:text="НАСЕЛЕНИЕ"
                     android:textColor="@color/white"
                     android:textSize="25sp"
                     android:textStyle="bold" />

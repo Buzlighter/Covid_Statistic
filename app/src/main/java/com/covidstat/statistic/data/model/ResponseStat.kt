@@ -13,9 +13,9 @@ data class ResponseStat(
         val recovered: Long?,
         @SerializedName("deaths")
         val deaths: Long?,
-        @SerializedName("administered")
-        val administrated: Long?,
         @SerializedName("people_partially_vaccinated")
-        val tested: Long?)
+        val tested: Long?,
+        @SerializedName("population")
+        val population: Long?)
 }
 

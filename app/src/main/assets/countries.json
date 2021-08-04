@@ -81,7 +81,7 @@
   },
   {
     "ru": "Боливия",
-    "en": "Bolivia (Plurinational State of)"
+    "en": "Bolivia"
   },
   {
     "ru": "Босния и Герцеговина",
@@ -117,7 +117,7 @@
   },
   {
     "ru": "Великобритания",
-    "en": "United Kingdom of Great Britain and Northern Ireland"
+    "en": "United Kingdom"
   },
   {
     "ru": "Венгрия",
@@ -125,7 +125,7 @@
   },
   {
     "ru": "Венесуэла",
-    "en": "Venezuela (Bolivarian Republic of)"
+    "en": "Venezuela"
   },
   {
     "ru": "Восточный Тимор",
@@ -204,8 +204,8 @@
     "en": "Dominican Republic"
   },
   {
-    "ru": "ДР Конго",
-    "en": "Congo, Democratic Republic of the"
+    "ru": "Конго",
+    "en": "The Democratic Republic of Congo"
   },
   {
     "ru": "Египет",
@@ -241,7 +241,7 @@
   },
   {
     "ru": "Иран",
-    "en": "Iran (Islamic Republic of)"
+    "en": "Iran"
   },
   {
     "ru": "Ирландия",
@@ -304,11 +304,7 @@
     "en": "Kiribati"
   },
   {
-    "ru": "КНДР (Корейская Народно-Демократическая Республика)",
-    "en": "Korea (Democratic People\u0027s Republic of)"
-  },
-  {
-    "ru": "Китай (Китайская Народная Республика)",
+    "ru": "Китай",
     "en": "China"
   },
   {
@@ -421,7 +417,7 @@
   },
   {
     "ru": "Микронезия",
-    "en": "Micronesia (Federated States of)"
+    "en": "Micronesia"
   },
   {
     "ru": "Мозамбик",
@@ -429,7 +425,7 @@
   },
   {
     "ru": "Молдавия",
-    "en": "Moldova, Republic of"
+    "en": "Moldova"
   },
   {
     "ru": "Монако",
@@ -529,7 +525,7 @@
   },
   {
     "ru": "Россия",
-    "en": "Russian Federation"
+    "en": "Russia"
   },
   {
     "ru": "Руанда",
@@ -621,7 +617,7 @@
   },
   {
     "ru": "США",
-    "en": "United States of America"
+    "en": "US"
   },
   {
     "ru": "Сьерра-Леоне",
@@ -762,6 +758,10 @@
   {
     "ru": "Южный Судан",
     "en": "South Sudan"
+  },
+  {
+    "ru": "Южная Корея",
+    "en": "Korea, South"
   },
   {
     "ru": "Ямайка",
