@@ -2,13 +2,11 @@ package com.covidstat.statistic.view.stat_screen
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,9 +66,9 @@ class CountryListFragment : Fragment(R.layout.fragment_country_list) {
 
     private val countryListener = object: CountryAdapter.OnItemClickListener{
         override fun onItemClick(countryData: CountryData) {
-            bundle.putString(Access.COUNTRY_INPUT_BUNDLE, countryData.countryEN)
+            bundle.putString(Access.STAT_FRAGMENT, countryData.countryEN)
             parentFragmentManager.commit {
-                replace<StatFragment>(R.id.fragment_main_container, Access.COUNTRY_INPUT_BUNDLE, bundle)
+                replace<StatFragment>(R.id.fragment_main_container, Access.STAT_FRAGMENT, bundle)
                 setReorderingAllowed(true)
                 addToBackStack(null)
             }

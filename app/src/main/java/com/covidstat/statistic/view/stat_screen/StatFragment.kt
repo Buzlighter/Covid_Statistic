@@ -36,7 +36,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
         fourthFieldData = view.findViewById(R.id.fourth_data)
         fifthFieldData = view.findViewById(R.id.fifth_data)
 
-        val countryName = this.arguments?.get(Access.COUNTRY_INPUT_BUNDLE).toString()
+        val countryName = this.arguments?.get(Access.STAT_FRAGMENT).toString()
 
         statFragmentViewModel.getCovidInfo(ApiClient.statApi, countryName)
 
