@@ -27,6 +27,18 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
                 addToBackStack(null)
             }
         }
-    }
 
+        articleButton.setOnClickListener {
+
+        }
+
+        checkInButton.setOnClickListener {
+            parentFragmentManager.commit {
+                replace<WebViewFragment>(R.id.fragment_main_container)
+                setReorderingAllowed(true)
+                addToBackStack(null)
+            }
+        }
+
+    }
 }
