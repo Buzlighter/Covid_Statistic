@@ -27,7 +27,7 @@ class ApiClient: Application() {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(Access.SERVER_URL)
+            .baseUrl(Access.STAT_SERVER_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

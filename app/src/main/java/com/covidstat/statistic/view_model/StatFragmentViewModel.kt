@@ -6,8 +6,6 @@ import com.covidstat.statistic.data.api.StatApi
 import com.covidstat.statistic.data.model.ResponseStat
 import com.covidstat.statistic.data.util.Access
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class StatFragmentViewModel(application: Application): AndroidViewModel(application) {
@@ -18,8 +16,8 @@ class StatFragmentViewModel(application: Application): AndroidViewModel(applicat
      fun getCovidInfo(statApi: StatApi?, countryName: String) {
         viewModelScope.launch(Dispatchers.IO) {
             statApi?.let {
-                mainLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_CASES, countryName))
-                minorLiveData.postValue(it.getCountryStat(Access.SERVER_PATH_VACCINES, countryName))
+                mainLiveData.postValue(it.getCountryStat(Access.STAT_SERVER_PATH_CASES, countryName))
+                minorLiveData.postValue(it.getCountryStat(Access.STAT_SERVER_PATH_VACCINES, countryName))
             }
         }
     }
