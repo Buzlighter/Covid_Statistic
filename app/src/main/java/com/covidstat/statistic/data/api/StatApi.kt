@@ -11,4 +11,5 @@ interface StatApi {
     @GET("{path}")
     suspend fun getCountryStat(@Path("path") path: String,
                                @Query("country") country: String): ResponseStat
+
 }

@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.*
 import com.covidstat.statistic.R
 import com.covidstat.statistic.data.util.Access
+import com.covidstat.statistic.view.article_screen.NewsFragment
 import com.covidstat.statistic.view.registration_screen.WebVaccineFragment
 import com.covidstat.statistic.view.stat_screen.CountryListFragment
 
@@ -31,6 +32,11 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
         }
 
         articleButton.setOnClickListener {
+            parentFragmentManager.commit {
+                replace<NewsFragment>(R.id.fragment_main_container)
+                setReorderingAllowed(true)
+                addToBackStack(null)
+            }
 
         }
 

@@ -11,11 +11,11 @@ import com.covidstat.statistic.data.api.ApiClient
 import com.covidstat.statistic.data.model.ResponseStat
 import com.covidstat.statistic.data.util.Access
 import com.covidstat.statistic.data.util.TextPattern
-import com.covidstat.statistic.view_model.StatFragmentViewModel
+import com.covidstat.statistic.view_model.StatViewModel
 
 
 class StatFragment : Fragment(R.layout.fragment_stat) {
-    private val statFragmentViewModel: StatFragmentViewModel by viewModels()
+    private val statViewModel: StatViewModel by viewModels()
 
     private lateinit var statLayout: LinearLayoutCompat
     private lateinit var firstFieldData: TextView
@@ -38,7 +38,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
 
         val countryName = this.arguments?.get(Access.STAT_FRAGMENT).toString()
 
-        statFragmentViewModel.getCovidInfo(ApiClient.statApi, countryName)
+        statViewModel.getCovidInfo(ApiClient.statApi, countryName)
 
         statLayout.visibility = View.VISIBLE
         setMainData()
@@ -46,7 +46,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
     }
 
     private fun setMainData() {
-        statFragmentViewModel.mainLiveData.observe(requireActivity()) {
+        statViewModel.mainStatLiveData.observe(requireActivity()) {
             it?.let {
                setNumPatternMainData(it)
                firstFieldData.text = it.mainInfo?.confirmed?.toString() ?: noData
@@ -57,7 +57,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
     }
 
     private fun setMinorData() {
-        statFragmentViewModel.minorLiveData.observe(requireActivity()) {
+        statViewModel.minorStatLiveData.observe(requireActivity()) {
             it?.let {
                 setNumPatternMinorData(it)
                 fourthFieldData.text = it.mainInfo?.tested?.toString() ?: noData
