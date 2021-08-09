@@ -1,5 +1,3 @@
-@file:Suppress("UNCHECKED_CAST")
-
 package com.covidstat.statistic.view.stat_screen
 
 import android.view.LayoutInflater
@@ -9,13 +7,15 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.covidstat.statistic.R
 import com.covidstat.statistic.data.model.CountryData
+import java.util.*
+import kotlin.collections.ArrayList
 
 
-class CountryAdapter(countriesList: List<CountryData>):
+class CountryAdapter (countryList: List<CountryData>):
     RecyclerView.Adapter<CountryAdapter.CountryHolder>(), Filterable {
 
-    private val fullCountryList = ArrayList<CountryData>(countriesList)
-    private val countryList = ArrayList<CountryData>(countriesList)
+    private val fullCountryList = ArrayList<CountryData>(countryList)
+    private val countryList = ArrayList<CountryData>(countryList)
     private lateinit var listener: OnItemClickListener
 
 
@@ -29,17 +29,16 @@ class CountryAdapter(countriesList: List<CountryData>):
 
     inner class CountryHolder(itemView: View, itemListener: OnItemClickListener): RecyclerView.ViewHolder(itemView) {
         val countryName: TextView = itemView.findViewById(R.id.country_name)
-
         init {
             itemView.setOnClickListener {
                 itemListener.onItemClick(countryList[bindingAdapterPosition])
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryHolder {
-        val context = parent.context
-        val inflater = LayoutInflater.from(context)
+        val inflater = LayoutInflater.from(parent.context)
         val countryView = inflater.inflate(R.layout.country_item, parent, false)
 
         return CountryHolder(countryView, listener)
@@ -47,7 +46,9 @@ class CountryAdapter(countriesList: List<CountryData>):
 
     override fun onBindViewHolder(holder: CountryHolder, position: Int) {
         val currentCountryData: CountryData = countryList[position]
-        holder.countryName.text = currentCountryData.countryRU
+        holder.countryName.apply {
+            text = currentCountryData.countryRU
+        }
     }
 
     override fun getItemCount(): Int {
@@ -76,9 +77,11 @@ class CountryAdapter(countriesList: List<CountryData>):
             return results
         }
 
+
+        @Suppress("UNCHECKED_CAST")
         override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            countryList.clear()
-            countryList.addAll(results?.values as List<CountryData>)
+            this@CountryAdapter.countryList.clear()
+            this@CountryAdapter.countryList.addAll(results?.values as List<CountryData>)
             notifyDataSetChanged()
         }
     }

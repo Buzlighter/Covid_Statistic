@@ -37,7 +37,6 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
                 setReorderingAllowed(true)
                 addToBackStack(null)
             }
-
         }
 
         checkInButton.setOnClickListener {

@@ -43,7 +43,7 @@ class CountryListFragment : Fragment(R.layout.fragment_country_list) {
         countryRecycler.apply {
             setHasFixedSize(true)
             val dividerItemDecoration = DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
-            AppCompatResources.getDrawable(requireContext(), R.drawable.line_divider)?.let {
+            AppCompatResources.getDrawable(requireContext(), R.drawable.line_divider_country)?.let {
                 dividerItemDecoration.setDrawable(it)
             }
             addItemDecoration(dividerItemDecoration)

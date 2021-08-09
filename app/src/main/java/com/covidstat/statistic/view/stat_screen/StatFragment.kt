@@ -46,7 +46,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
     }
 
     private fun setMainData() {
-        statViewModel.mainStatLiveData.observe(requireActivity()) {
+        statViewModel.mainStatLiveData.observe(viewLifecycleOwner) {
             it?.let {
                setNumPatternMainData(it)
                firstFieldData.text = it.mainInfo?.confirmed?.toString() ?: noData
@@ -57,7 +57,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
     }
 
     private fun setMinorData() {
-        statViewModel.minorStatLiveData.observe(requireActivity()) {
+        statViewModel.minorStatLiveData.observe(viewLifecycleOwner) {
             it?.let {
                 setNumPatternMinorData(it)
                 fourthFieldData.text = it.mainInfo?.tested?.toString() ?: noData

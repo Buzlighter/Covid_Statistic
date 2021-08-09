@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 class NewsViewModel(application: Application): AndroidViewModel(application)  {
     val newsLiveData = MutableLiveData<ResponseNews>()
 
-    fun getNewsInfo(newsApi: NewsApi?, ) {
+    fun getNewsInfo(newsApi: NewsApi?) {
         viewModelScope.launch(Dispatchers.IO) {
             newsApi?.let {
                 newsLiveData.postValue(it.getNewsInfo(

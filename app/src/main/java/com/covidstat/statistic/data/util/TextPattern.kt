@@ -28,5 +28,9 @@ class TextPattern {
                     textView.addTextChangedListener(PatternedTextWatcher("## ### ### ###"))
             }
         }
+
+        fun checkDateForPattern(textView: TextView) {
+            textView.addTextChangedListener(PatternedTextWatcher("##########"))
+        }
     }
 }
