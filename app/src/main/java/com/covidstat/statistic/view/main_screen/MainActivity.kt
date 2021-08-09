@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
 
     override fun onBackPressed() {
-        val webView: Fragment? = supportFragmentManager.findFragmentByTag(Access.WEB_VACCINE_FRAGMENT)
-        if (webView is WebVaccineFragment) {
-            val goBack: Boolean = webView.canGoBack()
+        val webViewFragment: Fragment? = supportFragmentManager.findFragmentByTag(Access.WEB_VACCINE_FRAGMENT)
+        if (webViewFragment is WebVaccineFragment) {
+            val goBack: Boolean = webViewFragment.canGoBack(webViewFragment.webView)
             if (!goBack) super.onBackPressed()
         }
         else {

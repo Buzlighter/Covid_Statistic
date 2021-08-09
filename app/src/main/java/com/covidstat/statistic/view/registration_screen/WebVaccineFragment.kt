@@ -1,6 +1,5 @@
 package com.covidstat.statistic.view.registration_screen
 
-
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
@@ -14,7 +13,7 @@ import com.covidstat.statistic.data.util.Access
 
 
 class WebVaccineFragment : Fragment(R.layout.fragment_web_view) {
-    private lateinit var webView: WebView
+    lateinit var webView: WebView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -26,16 +25,18 @@ class WebVaccineFragment : Fragment(R.layout.fragment_web_view) {
         configureWebView()
     }
 
+
     @SuppressLint("SetJavaScriptEnabled")
     fun configureWebView() {
-        val webSettings = webView.settings
-        webSettings.javaScriptEnabled = true
-        webSettings.domStorageEnabled = true
+        webView.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+        }
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true)
-        webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
     }
 
-    fun canGoBack(): Boolean {
+    fun canGoBack(webView: WebView): Boolean {
         return if (webView.canGoBack()) {
             webView.goBack()
             true
@@ -43,4 +44,5 @@ class WebVaccineFragment : Fragment(R.layout.fragment_web_view) {
             false
         }
     }
+
 }
