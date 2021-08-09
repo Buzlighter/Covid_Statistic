@@ -9,8 +9,8 @@ data class ResponseStat(
     data class MainInfo(
         @SerializedName("confirmed")
         val confirmed: Long?,
-        @SerializedName("recovered")
-        val recovered: Long?,
+        @SerializedName("people_vaccinated")
+        val people_vaccinated: Long?,
         @SerializedName("deaths")
         val deaths: Long?,
         @SerializedName("people_partially_vaccinated")

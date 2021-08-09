@@ -66,9 +66,9 @@ class CountryListFragment : Fragment(R.layout.fragment_country_list) {
 
     private val countryListener = object: CountryAdapter.OnItemClickListener{
         override fun onItemClick(countryData: CountryData) {
-            bundle.putString(Access.STAT_FRAGMENT, countryData.countryEN)
+            bundle.putString(Access.STAT_BUNDLE_KEY, countryData.countryEN)
             parentFragmentManager.commit {
-                replace<StatFragment>(R.id.fragment_main_container, Access.STAT_FRAGMENT, bundle)
+                replace<StatFragment>(R.id.fragment_main_container, Access.STAT_BUNDLE_KEY, bundle)
                 setReorderingAllowed(true)
                 addToBackStack(null)
             }

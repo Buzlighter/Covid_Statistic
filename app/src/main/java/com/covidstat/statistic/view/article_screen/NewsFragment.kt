@@ -1,5 +1,6 @@
 package com.covidstat.statistic.view.article_screen
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.content.res.AppCompatResources
@@ -13,11 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.covidstat.statistic.R
 import com.covidstat.statistic.data.api.ApiClient
 import com.covidstat.statistic.data.model.Article
-import com.covidstat.statistic.data.model.CountryData
 import com.covidstat.statistic.data.util.Access
-import com.covidstat.statistic.view.registration_screen.WebVaccineFragment
-import com.covidstat.statistic.view.stat_screen.CountryAdapter
-import com.covidstat.statistic.view.stat_screen.StatFragment
+import com.covidstat.statistic.view.web_view.WebViewFragment
 import com.covidstat.statistic.view_model.NewsViewModel
 
 class NewsFragment : Fragment(R.layout.fragment_news) {
@@ -25,6 +23,7 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
     private lateinit var newsRecycler: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
     lateinit var newsList: List<Article?>
+    val bundle = Bundle()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,10 +31,7 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         newsRecycler = view.findViewById(R.id.news_recycler)
         newsViewModel.getNewsInfo(ApiClient.newsApi)
 
-
-
         fitRecyclerView()
-
     }
 
     private fun fitRecyclerView() {
@@ -58,13 +54,14 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
     }
 
     // Реализовать общий webView и сделать переход на сайт новостей
-    private val newsListener = object: NewsAdapter.OnItemClickListener{
+    private val newsListener = object: NewsAdapter.OnItemClickListener {
         override fun onItemClick(article: Article?) {
-//            parentFragmentManager.commit {
-//                replace<WebVaccineFragment>(R.id.fragment_main_container, Access.WEB_VACCINE_FRAGMENT)
-//                setReorderingAllowed(true)
-//                addToBackStack(null)
-//            }
+            bundle.putString(Access.NEWS_BUNDLE_KEY, article?.url)
+            parentFragmentManager.commit {
+                replace<WebViewFragment>(R.id.fragment_main_container, Access.WEB_VIEW_FRAGMENT, bundle)
+                setReorderingAllowed(true)
+                addToBackStack(null)
+            }
         }
     }
 }

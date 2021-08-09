@@ -7,7 +7,7 @@ import androidx.fragment.app.*
 import com.covidstat.statistic.R
 import com.covidstat.statistic.data.util.Access
 import com.covidstat.statistic.view.article_screen.NewsFragment
-import com.covidstat.statistic.view.registration_screen.WebVaccineFragment
+import com.covidstat.statistic.view.web_view.WebViewFragment
 import com.covidstat.statistic.view.stat_screen.CountryListFragment
 
 
@@ -41,7 +41,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
         checkInButton.setOnClickListener {
             parentFragmentManager.commit {
-                replace<WebVaccineFragment>(R.id.fragment_main_container, Access.WEB_VACCINE_FRAGMENT)
+                add<WebViewFragment>(R.id.fragment_main_container, Access.WEB_VIEW_FRAGMENT)
                 setReorderingAllowed(true)
                 addToBackStack(null)
             }

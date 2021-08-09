@@ -1,6 +1,7 @@
-package com.covidstat.statistic.view.registration_screen
+package com.covidstat.statistic.view.web_view
 
 import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import android.webkit.CookieManager
@@ -12,7 +13,7 @@ import com.covidstat.statistic.R
 import com.covidstat.statistic.data.util.Access
 
 
-class WebVaccineFragment : Fragment(R.layout.fragment_web_view) {
+class WebViewFragment : Fragment(R.layout.fragment_web_view) {
     lateinit var webView: WebView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -20,9 +21,22 @@ class WebVaccineFragment : Fragment(R.layout.fragment_web_view) {
         webView = view.findViewById(R.id.web_view)
 
         webView.webViewClient = WebViewClient()
-        webView.loadUrl(Access.WEB_VIEW_URL)
 
         configureWebView()
+        loadUrlFrom()
+    }
+
+    private fun loadUrlFrom() {
+        val isFromMainFragment: Boolean = parentFragmentManager.fragments.contains(
+            requireActivity().supportFragmentManager.findFragmentByTag(Access.MAIN_FRAGMENT))
+
+        if (isFromMainFragment) {
+            webView.loadUrl(Access.WEB_VIEW_CHECK_IN_URL)
+        }
+        else {
+            val url = arguments?.get(Access.NEWS_BUNDLE_KEY).toString()
+            webView.loadUrl(url)
+        }
     }
 
 
@@ -36,7 +50,7 @@ class WebVaccineFragment : Fragment(R.layout.fragment_web_view) {
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true)
     }
 
-    fun canGoBack(webView: WebView): Boolean {
+    fun canGoBack(): Boolean {
         return if (webView.canGoBack()) {
             webView.goBack()
             true

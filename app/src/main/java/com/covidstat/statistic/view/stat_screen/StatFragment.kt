@@ -36,7 +36,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
         fourthFieldData = view.findViewById(R.id.fourth_data)
         fifthFieldData = view.findViewById(R.id.fifth_data)
 
-        val countryName = this.arguments?.get(Access.STAT_FRAGMENT).toString()
+        val countryName = this.arguments?.get(Access.STAT_BUNDLE_KEY).toString()
 
         statViewModel.getCovidInfo(ApiClient.statApi, countryName)
 
@@ -50,8 +50,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
             it?.let {
                setNumPatternMainData(it)
                firstFieldData.text = it.mainInfo?.confirmed?.toString() ?: noData
-               secondFieldData.text = it.mainInfo?.recovered?.toString() ?: noData
-               thirdFieldData.text = it.mainInfo?.deaths?.toString() ?: noData
+               secondFieldData.text = it.mainInfo?.deaths?.toString() ?: noData
             }
         }
     }
@@ -60,6 +59,7 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
         statViewModel.minorStatLiveData.observe(viewLifecycleOwner) {
             it?.let {
                 setNumPatternMinorData(it)
+                thirdFieldData.text = it.mainInfo?.people_vaccinated?.toString() ?: noData
                 fourthFieldData.text = it.mainInfo?.tested?.toString() ?: noData
                 fifthFieldData.text = it.mainInfo?.population?.toString() ?: noData
             }
@@ -71,17 +71,18 @@ class StatFragment : Fragment(R.layout.fragment_stat) {
             it.confirmed?.let { itNum ->
                 TextPattern.checkNumForPattern(firstFieldData, itNum)
             }
-            it.recovered?.let { itNum ->
-                TextPattern.checkNumForPattern(secondFieldData, itNum)
-            }
+
             it.deaths?.let { itNum ->
-                TextPattern.checkNumForPattern(thirdFieldData, itNum)
+                TextPattern.checkNumForPattern(secondFieldData, itNum)
             }
         }
     }
 
     private fun setNumPatternMinorData(responseStat: ResponseStat) {
         responseStat.mainInfo?.let {
+            it.people_vaccinated?.let { itNum ->
+                TextPattern.checkNumForPattern(thirdFieldData, itNum)
+            }
             it.tested?.let { itNum ->
                 TextPattern.checkNumForPattern(fourthFieldData, itNum)
             }

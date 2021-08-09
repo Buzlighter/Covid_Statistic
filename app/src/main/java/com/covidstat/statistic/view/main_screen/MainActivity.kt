@@ -7,7 +7,7 @@ import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import com.covidstat.statistic.R
 import com.covidstat.statistic.data.util.Access
-import com.covidstat.statistic.view.registration_screen.WebVaccineFragment
+import com.covidstat.statistic.view.web_view.WebViewFragment
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
-                add<MainScreenFragment>(R.id.fragment_main_container)
+                add<MainScreenFragment>(R.id.fragment_main_container, Access.MAIN_FRAGMENT)
                 setReorderingAllowed(true)
             }
         }
@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
 
     override fun onBackPressed() {
-        val webViewFragment: Fragment? = supportFragmentManager.findFragmentByTag(Access.WEB_VACCINE_FRAGMENT)
-        if (webViewFragment is WebVaccineFragment) {
-            val goBack: Boolean = webViewFragment.canGoBack(webViewFragment.webView)
+        val webViewFragment: Fragment? = supportFragmentManager.findFragmentByTag(Access.WEB_VIEW_FRAGMENT)
+        if (webViewFragment is WebViewFragment) {
+            val goBack: Boolean = webViewFragment.canGoBack()
             if (!goBack) super.onBackPressed()
         }
         else {
